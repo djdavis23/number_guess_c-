@@ -30,11 +30,10 @@ namespace number_guess
           string input = Console.ReadLine();
           int guess;
           bool valid = Int32.TryParse(input, out guess);
-          while (!valid)
+          if (!valid)
           {
             Console.WriteLine("Invalid guess. Please choose a whole number between 0 and 100");
-            input = Console.ReadLine();
-            valid = Int32.TryParse(input, out guess);
+            continue;
           }
           int result = game.Play(guess);
           switch (result)
